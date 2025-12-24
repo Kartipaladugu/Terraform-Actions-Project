@@ -3,7 +3,7 @@ provider "google" {
     project = "mission-2026-482014"
     region = "us-central1"
     zone = "us-central1-a"
-    credentials = file("C:/Users/Paladugu/OneDrive/Desktop/Lab/mission-2026-482014-b330cb6a2a87.json")
+    credentials = var.credentials_json
 }
 
 #create vm instance
