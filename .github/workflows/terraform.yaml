@@ -32,8 +32,12 @@ jobs:
       # Plan Terraform
       - name: Terraform Plan
         run: terraform plan -input=false
+        env:
+          TF_VAR_credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
       # Apply Terraform (only on push to main)
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve -input=false
+        env:
+          TF_VAR_credentials_json: ${{ secrets.GCP_CREDENTIALS }}
