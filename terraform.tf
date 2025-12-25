@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = var.state_bucket
+    bucket = "terraform-state-bucket-2025"
     prefix = "terraform/state"
   }
 }
