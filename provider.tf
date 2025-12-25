@@ -6,6 +6,17 @@ provider "google" {
     credentials = var.credentials_json
 }
 
+#create GCS bucket for Terraform state
+resource "google_storage_bucket" "terraform_state" {
+  name          = var.state_bucket
+  location      = "US"
+  force_destroy = true
+
+  versioning {
+    enabled = true
+  }
+}
+
 #create vm instance
 resource "google_compute_instance" "vm_instance" {
     name = "test-vm"
